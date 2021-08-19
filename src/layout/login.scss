@@ -1,0 +1,58 @@
+// Styles
+// CoreUI Icons Set
+//@import '~@coreui/icons/css/flag.min.css';
+// Import Flag Icons Set
+//@import '~flag-icon-css/css/flag-icon.min.css';
+// Import Font Awesome Icons Set
+@import '~font-awesome/css/font-awesome.min.css';
+// Import Simple Line Icons Set
+@import '~simple-line-icons/css/simple-line-icons.css';
+// Import Main styles for this application
+//@import 'layout/style.scss';
+
+.logo-img {
+    width: 280px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    background: #00a5f5;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.login-btn:focus, .login-btn:hover {
+    color: #00a5f5;
+    background: white;
+    border-color: #958bef;
+    outline: 0;
+}
+
+.login-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
+}
+
+#components-layout-demo-top-side-2 .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+    background: #fff;
+}
+//.container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+//    max-width: 1140px;
+//}

@@ -1,0 +1,203 @@
+.layout-topbar {
+    position: fixed;
+    height: 50px;
+    padding: .7em 1.5em 0 1.5em;
+    color: #ffffff;
+    z-index: 999;
+    right: 0;
+    @include clearfix();
+    @include linear-gradient-left($topbarLeftBgColor, $topbarRightBgColor);
+    transition: left $transitionDuration;
+
+    .layout-topbar-icons {
+        float: right;
+        display: flex;
+        align-items: center;
+        -moz-animation-duration: .5s;
+        -webkit-animation-duration: .5s;
+        animation-duration: .5s;
+
+        button {
+            position: relative;
+            color: $topbarItemColor;
+            margin-left: 20px;
+            display: inline-block;
+            text-decoration: none;
+            transition: color $transitionDuration;
+
+            &:hover {
+                color: $topbarItemHoverColor;
+            }
+
+            &:focus {
+                @include focused();
+            }
+
+            span {
+                &.layout-topbar-icon {
+                    font-size: 1.5em;
+                }
+
+                &.layout-topbar-badge {
+                    position: absolute;
+                    font-size: 10px;
+                    right: -5px;
+                    top: -5px;
+                    width: 16px;
+                    height: 16px;
+                    text-align: center;
+                    line-height: 16px;
+                    color: $topbarItemBadgeColor;
+                    background-color: $topbarItemBadgeBgColor;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .layout-topbar-search {
+            padding: 0;
+            position: relative;
+            display: inline-block;
+            top: -4px;
+
+            input {
+                display: inline-block;
+                border: 0 none;
+                font-size: $fontSize;
+                background: transparent;
+                border-bottom: 2px solid $topbarSearchInputBorderBottomColor;
+                outline: 0 none;
+                box-shadow: none;
+                color: $topbarSearchInputColor;
+                width: 100px;
+                padding: 1px 20px 1px 1px;
+                margin: 0px;
+                border-radius: 2px;
+
+                &::-webkit-input-placeholder {
+                    color: $topbarSearchInputColor;
+                    opacity: .7;
+                    transition: opacity $transitionDuration;
+                }
+
+                &:-moz-placeholder {
+                    color: $topbarSearchInputColor;
+                    opacity: .7;
+                    transition: opacity $transitionDuration;
+                }
+
+                &::-moz-placeholder {
+                    color: $topbarSearchInputColor;
+                    opacity: .7;
+                    transition: opacity $transitionDuration;
+                }
+
+                &:-ms-input-placeholder {
+                    color: $topbarSearchInputColor;
+                    opacity: .7;
+                    transition: opacity $transitionDuration;
+                }
+            }
+
+            .layout-topbar-search-icon {
+                font-size: 18px;
+                position: absolute;
+                top: -1px;
+                right: 0px;
+            }
+
+            &:hover {
+                input {
+                    border-bottom-color: $topbarItemHoverColor;
+
+                    &::-webkit-input-placeholder {
+                        opacity: 1
+                    }
+
+                    &:-moz-placeholder {
+                        opacity: 1
+                    }
+
+                    &::-moz-placeholder {
+                        opacity: 1
+                    }
+
+                    &:-ms-input-placeholder {
+                        opacity: 1
+                    }
+                }
+
+                .layout-topbar-search-icon {
+                    color: $topbarItemHoverColor;
+                }
+            }
+        }
+    }
+
+    .user-info {
+        border-radius: 18px;
+
+        &:focus {
+            box-shadow: 0 0 0 0.1em #ffffff !important;
+        }
+
+        & > div {
+            padding: 1px 6px 1px 1px;
+            border-radius: 18px;
+            color: white;
+            font-weight: bold;
+            font-size: 11pt;
+            display: flex;
+            align-items: center;
+
+            i {
+                padding: 0;
+                margin-right: 6px;
+                font-size: 20px;
+            }
+
+            img {
+                width: 25px;
+                border-radius: 50%;
+                margin-right: 6px;
+            }
+
+            &:hover {
+                background-color: #00000024;
+            }
+        }
+    }
+
+    .layout-menu-button {
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        color: $topbarItemColor;
+        transition: color $transitionDuration;
+
+        span {
+            font-size: 1.5em;
+        }
+
+        &:hover {
+            color: $topbarItemHoverColor;
+        }
+    }
+
+    button {
+        cursor: pointer;
+    }
+}
+
+.topbar-app-title {
+    display: inline-flex;
+    padding-left: 15px;
+    //font-weight: bold;
+    position: absolute;
+    font-size: 18pt;
+    top: 8px;
+}
+
+.topbar-app-logo {
+    margin-right: 15px;
+}

@@ -1,0 +1,200 @@
+.layout-menu-container {
+    padding-bottom: 120px;
+}
+
+.layout-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    white-space: pre-line;
+
+    li {
+        a {
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color $transitionDuration;
+
+            i {
+                font-size: 18px;
+                vertical-align: middle;
+            }
+
+            span {
+                margin-left: .25em;
+                vertical-align: middle;
+                line-height: 18px;
+                display: inline-block;
+            }
+
+            .menuitem-toggle-icon {
+                position: absolute;
+                top: 50%;
+                right: 0.2em;
+                margin-top: -9px;
+            }
+
+            &:focus {
+                @include focused-inset();
+            }
+        }
+
+        &.active-menuitem {
+            > a {
+                .menuitem-toggle-icon {
+                    @include icon-override("\e933");
+                }
+            }
+        }
+    }
+
+    > li {
+        > a {
+            padding: 0.5em;
+
+            span {
+                font-size: $fontSize;
+            }
+        }
+
+        &:last-child {
+            > a {
+                border-bottom: 1px solid $menuitemBorderColor;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            padding-left: 1em;
+
+            li {
+                a {
+                    cursor: pointer;
+                    padding: .3em 0.5em;
+                    border-top: 0 none;
+
+                    span {
+                        font-size: $submenuFontSize;
+                    }
+                }
+
+                &:last-child {
+                    padding-bottom: 0.5em;
+                }
+            }
+
+            &.layout-submenu-wrapper-enter,
+            &.layout-submenu-wrapper-leave-to {
+                max-height: 0;
+            }
+
+            &.layout-submenu-wrapper-enter-to,
+            &.layout-submenu-wrapper-leave {
+                max-height: 1000px;
+            }
+
+            &.layout-submenu-wrapper-leave-active {
+                overflow: hidden;
+                transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+            }
+
+            &.layout-submenu-wrapper-enter-active {
+                overflow: hidden;
+                transition: max-height 1s ease-in-out;
+            }
+        }
+    }
+}
+
+.layout-sidebar-light {
+    @include linear-gradient($menuBgColorFirst, $menuBgColorLast);
+
+    .layout-menu {
+        > li {
+            > a {
+                border-top: 1px solid $menuitemBorderColor;
+            }
+
+            &:last-child {
+                > a {
+                    border-bottom: 1px solid $menuitemBorderColor;
+                }
+            }
+
+            ul {
+                background-color: $menuitemActiveBgColor;
+            }
+        }
+
+        li {
+            a {
+                color: $menuitemColor;
+
+                &.active-route {
+                    color: $menuitemActiveRouteColor;
+                }
+
+                &:hover {
+                    color: $menuitemHoverColor;
+                }
+            }
+
+            &.active-menuitem {
+                > a {
+                    background-color: $menuitemActiveBgColor;
+                    color: $menuitemActiveColor;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.layout-sidebar-dark {
+    @include linear-gradient($menuDarkBgColorFirst, $menuDarkBgColorLast);
+
+    .layout-menu {
+        > li {
+            > a {
+                border-top: 1px solid $menuitemDarkBorderColor;
+            }
+
+            &:last-child {
+                > a {
+                    border-bottom: 1px solid $menuitemDarkBorderColor;
+                }
+            }
+
+            ul {
+                background-color: $menuitemDarkActiveBgColor;
+            }
+        }
+
+        li {
+            a {
+                color: $menuitemDarkColor;
+
+                &.active-route {
+                    color: $menuitemActiveRouteColor;
+                }
+
+                &:hover {
+                    color: $menuitemDarkHoverColor;
+                }
+            }
+
+            &.active-menuitem {
+                > a {
+                    background-color: $menuitemDarkActiveBgColor;
+                    color: $menuitemDarkActiveColor;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
