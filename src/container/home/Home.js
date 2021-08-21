@@ -20,16 +20,22 @@ class Home extends FTUComponent {
     })
     }
 
-    onclick =()=>{
-    window.location.href='/product-detail2'
+    onclicklogin =()=>{
+    window.location.href='/product-login'
     }
+
+    onclicksignin =()=>{
+        window.location.href='/product-sign-in'
+        }
     render() {
         return (
             <div>
             <LayoutCustom laybleHeader = 'home' >
                 <div >
                     <label>{this.state.text}</label>
-                <button onClick={this.onclick}> detail2</button>
+                <button onClick={this.onclicklogin}>Login</button>
+                <br></br>
+                <button onClick={this.onclicksignin}>Sign In</button>
                 </div>
             </LayoutCustom>
 
